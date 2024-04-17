@@ -2,6 +2,7 @@ import NasaImages from './components/NasaImages';
 import LogoNasa from './assets/nasa-6.svg'
 import LogoSatelite from './assets/satellite-svgrepo-com (1).svg'
 import './App.css';
+import RecentImages from './components/RecentImages';
 
 function App() {
  
@@ -20,7 +21,9 @@ function App() {
           <h2 className='pick'>Pick a date: </h2>
         <NasaImages />
         </section>
-
+<section>
+  <RecentImages />
+</section>
     
     </div>
   );

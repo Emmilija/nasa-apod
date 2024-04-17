@@ -2,17 +2,23 @@ import fetchNasaData from '../data/fetchNasaData';
 import { useState } from 'react';
 
 export default function NasaImages() {
-    const [date, setDate] = useState<string>(''); // State to store the selected date
-    const [data, setData] = useState<any>(null); // State to store the fetched data
-    const [error, setError] = useState<string | null>(null); // State to store error message
+    const [date, setDate] = useState<string>(''); 
+    const [data, setData] = useState<any>(null); 
+    const [error, setError] = useState<string | null>(null); 
   
     // const apiKey = process.env.REACT_APP_NASA_API_KEY; 
   
-    const handleDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      setDate(event.target.value);
+    const handleDateChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+      const selectedDate = event.target.value
+      setDate(selectedDate);
+      await fetchData(selectedDate)
     };
-  
-    const fetchData = async () => {
+  console.log(date)
+
+
+
+
+    const fetchData = async (selectedDate : string) => {
       try {
         setError(null); 
         const fetchedData = await fetchNasaData(date);
@@ -27,7 +33,7 @@ export default function NasaImages() {
     <div className='date-picker'>
 
    <input type="date" value={date} onChange={handleDateChange} />
-      <button className='submit'type='submit' onClick={fetchData}>Search</button>
+      <button className='submit'type='submit' onClick={() => fetchData(date)}>Search</button>
 
 
     </div>
