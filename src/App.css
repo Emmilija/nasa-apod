@@ -122,7 +122,7 @@ border-right: none;
 width: 40%;
 border-radius: 12px 0 0 12px;
 background-color: rgb(229 231 235);
-/* background-color: rgb(189, 196, 210); */
+
 }
 
 .submit {
@@ -188,7 +188,7 @@ margin: 0.8rem;
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 500px) and (-webkit-device-pixel-ratio: 2) {
 
   .App-header {
     height: 11rem;
