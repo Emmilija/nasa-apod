@@ -9,16 +9,15 @@ export default function NasaImages() {
     // const apiKey = process.env.REACT_APP_NASA_API_KEY; 
   
     const handleDateChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
-      const selectedDate = event.target.value
-      setDate(selectedDate);
-      await fetchData(selectedDate)
+     
+      setDate(event.target.value);
+      
     };
-  console.log(date)
 
 
 
 
-    const fetchData = async (selectedDate : string) => {
+    const fetchData = async () => {
       try {
         setError(null); 
         const fetchedData = await fetchNasaData(date);
@@ -29,18 +28,19 @@ export default function NasaImages() {
       }
     };
     return(
+
 <main className='info-container'>
-    <div className='date-picker'>
 
-   <input type="date" value={date} onChange={handleDateChange} />
-      <button className='submit'type='submit' onClick={() => fetchData(date)}>Search</button>
-
-
+<div className='date-picker'>
+   <input type="date" placeholder='Select a date' value={date} onChange={handleDateChange} />
+      <button className='submit'type='submit' onClick={fetchData}>Search</button>
     </div>
 
-      {error && <p>{error}</p>}
-      {data && (
-        <div className='info-api'>
+  
+   
+      {error && <p className='error'>{error}</p>}
+      { data && (
+        <div className={`info-api ${ error ? 'error' && 'info-none' : 'info-api'}`}>
             <div className='image-container'>
             <img src={data.url} alt={data.title} />
             </div>

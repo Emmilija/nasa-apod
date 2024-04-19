@@ -2,7 +2,7 @@ import NasaImages from './components/NasaImages';
 import LogoNasa from './assets/nasa-6.svg'
 import LogoSatelite from './assets/satellite-svgrepo-com (1).svg'
 import './App.css';
-import RecentImages from './components/RecentImages';
+
 
 function App() {
  
@@ -11,19 +11,22 @@ function App() {
       <header className="App-header">
       <div className='logo-container'>
       <img className='logo' src={LogoNasa} alt="Logo" />
-        <img className='satelite orbit' src={LogoSatelite} alt="" />
+      <img className='satelite orbit' src={LogoSatelite} alt="" />
       </div>
       
         </header>
 
         <section>
+          <div>
           <h1>Astronomy Image of the Day</h1>
-          <h2 className='pick'>Pick a date: </h2>
-        <NasaImages />
+          </div>
+ 
+     <div>
+     <NasaImages />
+     </div>
+      
         </section>
-<section>
-  <RecentImages />
-</section>
+
     
     </div>
   );
