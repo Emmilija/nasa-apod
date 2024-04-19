@@ -188,7 +188,7 @@ margin: 0.8rem;
     }
 }
 
-@media (max-width: 500px) and (-webkit-device-pixel-ratio: 2) {
+@media (max-width: 500px) {
 
   .App-header {
     height: 11rem;
